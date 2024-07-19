@@ -1,3 +1,4 @@
+# src/backend/services/pokemon_tcg_api/configure_api.py
 from pokemontcgsdk import RestClient
 from ...config import Config
 

@@ -1,3 +1,4 @@
+# src\backend\services\pokemon_tcg_api\get_card_details.py
 from pokemontcgsdk import Card
 
 def get_card_details(card_id):

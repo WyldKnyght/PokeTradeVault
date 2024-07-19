@@ -1,6 +1,6 @@
 # src/backend/models/saved_searches.py
 from sqlalchemy import Column, Integer, String
-from . import db
+from ..extensions import db
 
 class SavedSearch(db.Model):
     __tablename__ = 'saved_searches'

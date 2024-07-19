@@ -12,8 +12,8 @@ Phase 1: AI Chatbot for Deal Finding
    [X] Design database schema for storing relevant Pokémon card data and user interactions
    [X] Set up database (SQLite for development, PostgreSQL for production)
    [X] Integrate Pokémon TCG API using the python-tcgsdk
-   [ ] Create API endpoints for card data retrieval and user interactions
-   [ ] Implement data caching to reduce API calls and improve performance
+   [X] Create API endpoints for card data retrieval and user interactions
+   [X] Implement data caching to reduce API calls and improve performance
 
 3. AI Chatbot Development:
    [ ] Select and integrate NLP API (e.g., DialogFlow)

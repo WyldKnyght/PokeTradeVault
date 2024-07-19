@@ -1,6 +1,6 @@
 # src/backend/models/watchlist.py
 from sqlalchemy import Column, Integer, String, Numeric
-from . import db
+from ..extensions import db
 
 class Watchlist(db.Model):
     __tablename__ = 'watchlist'

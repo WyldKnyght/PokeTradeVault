@@ -1,6 +1,6 @@
 # src/backend/models/transaction_history.py
 from sqlalchemy import Column, Integer, String, Numeric, Date
-from . import db
+from ..extensions import db
 
 class TransactionHistory(db.Model):
     __tablename__ = 'transaction_history'

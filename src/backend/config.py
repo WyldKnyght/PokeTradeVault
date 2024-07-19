@@ -16,6 +16,9 @@ class Config:
     
     POKEMON_TCG_API_KEY = os.environ.get('POKEMON_TCG_API_KEY')
 
+    CACHE_TYPE = "SimpleCache"  # You can change this to "RedisCache" or others in production
+    CACHE_DEFAULT_TIMEOUT = 300  # 5 minutes
+    
     @staticmethod
     def init_app(app):
         if not Config.POKEMON_TCG_API_KEY:

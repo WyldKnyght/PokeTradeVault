@@ -1,3 +1,4 @@
+# src\backend\services\pokemon_tcg_api\get_set_details.py
 from pokemontcgsdk import Set
 
 def get_set_details(set_id):
