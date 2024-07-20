@@ -17,7 +17,7 @@ Phase 1: AI Chatbot for Deal Finding
 
 3. AI Chatbot Development with FastAPI and spaCy:
    [X] Install and set up FastAPI and spaCy
-   [ ] Define API endpoints for chatbot interactions
+   [X] Define API endpoints for chatbot interactions
    [ ] Train spaCy models for intent classification and entity recognition in the Pokémon card trading domain
    [ ] Develop conversation flow logic using FastAPI
    [ ] Implement custom functions for card value queries and undervalued card identification

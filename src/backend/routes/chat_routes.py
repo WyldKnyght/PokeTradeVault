@@ -1,14 +1,22 @@
 from fastapi import APIRouter
-from ..extensions import nlp
+from pydantic import BaseModel
+from src.nlp.load_model import load_model, process_text
 
 router = APIRouter()
+nlp = load_model()
 
-@router.get("/")
+class Message(BaseModel):
+    message: str
+
+@router.get("/chat")
 async def root():
     return {"message": "Welcome to PokéDealFinder Chat!"}
 
-@router.post("/")
-async def chat(message: str):
-    doc = nlp(message)
-    # Basic NLP processing, to be expanded later
-    return {"response": f"Received: {message}"}
+@router.post("/chat")
+async def chat(message: Message):
+    result = process_text(nlp, message.message)
+    response = {
+        "original_message": message.message,
+        "entities": result["entities"]
+    }
+    return {"response": response}
