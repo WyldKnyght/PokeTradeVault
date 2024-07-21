@@ -14,35 +14,35 @@ def create_aligned_entities(nlp, text: str, entity_text: str, entity_label: str)
 def create_example(nlp, text: str, entities_dict: Dict[str, str]) -> Tuple[str, Dict[str, List[Tuple[int, int, str]]]]:
     entities = []
     for entity_text, entity_label in entities_dict.items():
-        entities.extend(create_aligned_entities(nlp, text, entity_text, entity_label))
+        entities.extend(create_aligned_entities(nlp, text, str(entity_text), entity_label))
     return (text, {"entities": entities})
 
 def generate_card_price_example(nlp, card: Dict) -> Tuple[str, Dict[str, List[Tuple[int, int, str]]]]:
     text = f"What's the price of {card['card_name']} ({card['card_number']}) from the {card['set_name']} set?"
     entities = {
-        card['card_name']: "card_name",
-        card['card_number']: "card_number",
-        card['set_name']: "set_name"
+        str(card['card_name']): "card_name",
+        str(card['card_number']): "card_number",
+        str(card['set_name']): "set_name"
     }
     return create_example(nlp, text, entities)
 
 def generate_set_info_example(nlp, card: Dict) -> Tuple[str, Dict[str, List[Tuple[int, int, str]]]]:
     text = f"How many cards are in the {card['set_name']} set?"
-    entities = {card['set_name']: "set_name"}
+    entities = {str(card['set_name']): "set_name"}
     return create_example(nlp, text, entities)
 
 def generate_series_example(nlp, card: Dict) -> Tuple[str, Dict[str, List[Tuple[int, int, str]]]]:
     text = f"Which series does the {card['set_name']} set belong to?"
-    entities = {card['set_name']: "set_name"}
+    entities = {str(card['set_name']): "set_name"}
     return create_example(nlp, text, entities)
 
 def generate_combined_example(nlp, card: Dict) -> Tuple[str, Dict[str, List[Tuple[int, int, str]]]]:
     text = f"Is {card['card_name']} ({card['card_number']}) from the {card['set_name']} set in the {card['series']} series rare?"
     entities = {
-        card['card_name']: "card_name",
-        card['card_number']: "card_number",
-        card['set_name']: "set_name",
-        card['series']: "series_name"
+        str(card['card_name']): "card_name",
+        str(card['card_number']): "card_number",
+        str(card['set_name']): "set_name",
+        str(card['series']): "series_name"
     }
     return create_example(nlp, text, entities)
 

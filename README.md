@@ -1,6 +1,7 @@
 # Pokémon Card AI Assistant
 
-   This project is an AI-powered assistant for buying and selling Pokémon cards.
+   This project is an AI-powered assistant for buying and selling Pokémon cards. 
+   It is still in development (may not have all functionality).
 
    ## Setup
 
