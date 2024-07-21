@@ -1,11 +1,10 @@
 # src/database/pokemon_tcg_data/db_operations.py
+
 import sqlite3
+from typing import List, Tuple
 from contextlib import contextmanager
 from ..create_connection import create_connection
-
-class DatabaseConnectionError(Exception):
-    """Raised when a database connection cannot be established."""
-    pass
+from ..exceptions import DatabaseConnectionError
 
 @contextmanager
 def get_db_cursor():
@@ -74,3 +73,8 @@ def create_tables():
                 )
             ''')
             print("Table 'card_sets' created successfully.")
+
+def execute_query(query: str, params: Tuple = ()) -> List[Tuple]:
+    with get_db_cursor() as cursor:
+        cursor.execute(query, params)
+        return cursor.fetchall()

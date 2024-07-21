@@ -1,3 +1,4 @@
+# src/database/pokemon_tcg_data/card_operations.py
 from typing import Dict, Set
 from .db_operations import get_db_cursor
 from .log_discrepancies import log_discrepancy, card_log_file

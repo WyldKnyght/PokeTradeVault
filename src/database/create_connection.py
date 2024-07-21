@@ -2,6 +2,7 @@
 import os
 import sqlite3
 from dotenv import load_dotenv
+from .exceptions import DatabaseConnectionError
 
 # Get the absolute path to the project root
 PROJECT_ROOT = os.path.abspath(os.path.join(os.path.dirname(__file__), '..', '..'))
@@ -15,5 +16,6 @@ def create_connection():
     try:
         return sqlite3.connect(CARD_DB_PATH)
     except sqlite3.Error as e:
-        print(f"Error creating database connection: {e}")
-    return None
+        raise DatabaseConnectionError(
+            f"Error creating database connection: {e}"
+        ) from e
